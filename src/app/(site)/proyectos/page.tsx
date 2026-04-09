@@ -1,5 +1,4 @@
 export default function ProyectosPage() {
-<<<<<<< HEAD
   const proyectos = [
     {
       titulo: "Finanzas",
@@ -43,15 +42,13 @@ export default function ProyectosPage() {
           <a
             key={proyecto.href}
             href={proyecto.href}
-            className="rounded-2xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition"
+            className="rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:bg-white/10"
             target="_blank"
             rel="noreferrer"
           >
             <div className="text-base font-medium">{proyecto.titulo}</div>
-            <div className="mt-1 text-sm text-white/70">
-              {proyecto.subtitulo}
-            </div>
-            <div className="mt-3 space-y-2 text-sm text-white/70 leading-relaxed">
+            <div className="mt-1 text-sm text-white/70">{proyecto.subtitulo}</div>
+            <div className="mt-3 space-y-2 text-sm leading-relaxed text-white/70">
               {proyecto.descripcion.map((item) => (
                 <p key={item}>{item}</p>
               ))}
@@ -59,24 +56,11 @@ export default function ProyectosPage() {
             <div className="mt-3 text-xs uppercase tracking-wide text-white/50">
               Stack
             </div>
-            <div className="mt-1 text-sm text-white/70">
-              {proyecto.stack}
-            </div>
-            <div className="mt-3 text-sm text-white/70">
-              {proyecto.href}
-            </div>
+            <div className="mt-1 text-sm text-white/70">{proyecto.stack}</div>
+            <div className="mt-3 text-sm text-white/70">{proyecto.href}</div>
           </a>
         ))}
       </div>
-
-=======
-  return (
-    <div className="space-y-3">
-      <h1 className="text-3xl font-semibold tracking-tight">Proyectos</h1>
-      <p className="text-white/70">
-        Acá van tus casos: problema → solución → stack → resultado.
-      </p>
->>>>>>> f57aa10b (creacion del proyecto y primeras configuraciones)
     </div>
   );
 }
