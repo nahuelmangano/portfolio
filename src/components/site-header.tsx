@@ -4,7 +4,6 @@ const nav = [
   { href: "/", label: "Inicio" },
   { href: "/proyectos", label: "Proyectos" },
   { href: "/servicios", label: "Servicios" },
-  { href: "/contacto", label: "Contacto" },
 ];
 
 export function SiteHeader() {
@@ -13,7 +12,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2">
           <span className="font-semibold tracking-tight">Nahuel Mangano</span>
-          <span className="text-xs text-white/45 hidden sm:inline">
+          <span className="hidden text-xs text-white/45 sm:inline">
             nmvdevelop.com.ar
           </span>
         </Link>
@@ -23,7 +22,7 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="hover:text-white transition"
+              className="transition hover:text-white"
             >
               {item.label}
             </Link>
@@ -32,7 +31,7 @@ export function SiteHeader() {
 
         <Link
           href="/contacto"
-          className="rounded-full bg-white text-zinc-950 px-3 py-1.5 text-sm font-medium hover:opacity-90 transition"
+          className="rounded-full bg-white px-3 py-1.5 text-sm font-medium text-zinc-950 transition hover:opacity-90"
         >
           Hablemos
         </Link>
