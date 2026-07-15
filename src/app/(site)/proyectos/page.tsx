@@ -11,15 +11,15 @@ export default function ProyectosPage() {
       href: "https://finanzas.nmvdevelop.com.ar/",
     },
     {
-      titulo: "UPEClinica",
-      subtitulo: "Sistema de Gestion Clinica",
+      titulo: "FikaStore",
+      subtitulo: "E-commerce completo",
       descripcion: [
-        "Sistema web integral para consultorios medicos que gestiona pacientes, historias clinicas y evoluciones con control de accesos por rol.",
-        "Arquitectura en capas orientada a buenas practicas y escalabilidad en entornos reales.",
+        "Tienda online con catalogo, carrito, checkout, pagos, usuarios, pedidos y panel administrativo.",
+        "Incluye promociones, cupones, emails transaccionales y gestion de productos con importacion y exportacion.",
       ],
       stack:
-        "Angular | ASP.NET Core | SQL Server | Docker | Arquitectura en capas | RBAC",
-      href: "http://upeclinica.net.ar",
+        "Next.js | TypeScript | Prisma | SQL Server | NextAuth | Mercado Pago",
+      href: "https://tienda-demo.nmvdevelop.com.ar/",
     },
     {
       titulo: "Notarizacion de Documentos",
@@ -38,28 +38,40 @@ export default function ProyectosPage() {
       <h1 className="text-3xl font-semibold tracking-tight">Proyectos</h1>
 
       <div className="grid gap-4 md:grid-cols-3">
-        {proyectos.map((proyecto) => (
-          <a
-            key={proyecto.href}
-            href={proyecto.href}
-            className="rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:bg-white/10"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <div className="text-base font-medium">{proyecto.titulo}</div>
-            <div className="mt-1 text-sm text-white/70">{proyecto.subtitulo}</div>
-            <div className="mt-3 space-y-2 text-sm leading-relaxed text-white/70">
-              {proyecto.descripcion.map((item) => (
-                <p key={item}>{item}</p>
-              ))}
-            </div>
-            <div className="mt-3 text-xs uppercase tracking-wide text-white/50">
-              Stack
-            </div>
-            <div className="mt-1 text-sm text-white/70">{proyecto.stack}</div>
-            <div className="mt-3 text-sm text-white/70">{proyecto.href}</div>
-          </a>
-        ))}
+        {proyectos.map((proyecto) => {
+          const Card = proyecto.href ? "a" : "div";
+
+          return (
+            <Card
+              key={proyecto.titulo}
+              {...(proyecto.href
+                ? { href: proyecto.href, target: "_blank", rel: "noreferrer" }
+                : {})}
+              className="rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:bg-white/10"
+            >
+              <div className="text-base font-medium">{proyecto.titulo}</div>
+              <div className="mt-1 text-sm text-white/70">
+                {proyecto.subtitulo}
+              </div>
+              <div className="mt-3 space-y-2 text-sm leading-relaxed text-white/70">
+                {proyecto.descripcion.map((item) => (
+                  <p key={item}>{item}</p>
+                ))}
+              </div>
+              <div className="mt-3 text-xs uppercase tracking-wide text-white/50">
+                Stack
+              </div>
+              <div className="mt-1 text-sm text-white/70">
+                {proyecto.stack}
+              </div>
+              {proyecto.href ? (
+                <div className="mt-3 text-sm text-white/70">
+                  {proyecto.href}
+                </div>
+              ) : null}
+            </Card>
+          );
+        })}
       </div>
     </div>
   );
